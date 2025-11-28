@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: extract_features_component
+version: 6  # Bumped for logging changes
+type: command
+inputs:
+  input_data:
+    type: uri_folder
+outputs:
+  features_data:
+    type: uri_file
+code: ./
+environment: azureml:custom_sklearn_env:3
+command: >-
+  python extract_features.py --input_data ${{inputs.input_data}} --features_data ${{outputs.features_data}}
