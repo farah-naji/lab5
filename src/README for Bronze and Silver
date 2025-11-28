@@ -1,0 +1,9 @@
+# Lab 5: Feature Engineering, Feature Store & MLOps on Azure
+
+## How to Run Bronze Layer
+1. Run `python src/ingest_images.py` to upload local dataset to ADLS Gen2 raw/tumor_images/yes and no.
+2. Run `python src/register_data_asset.py` to register as azureml:tumor_images_raw:<version>.
+
+## How to Run Silver Layer
+1. Register component with `az ml component create --file src/components/extract_features_component.yml`.
+2. Run `python src/run_silver_job.py` to submit the feature extraction job.
